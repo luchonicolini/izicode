@@ -1,0 +1,96 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+   
+    font-family: 'Dosis', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Varela Round', sans-serif;  
+}
+
+ /* ALINIACION CENTRAL DE LAS TARJETAS ============= */
+.contenedor{
+    width: 100%;
+    max-width: 1200px;
+    height: 430px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+}
+
+/* TAMAÑO DE LAS TARJETAS ============= */
+.contenedor .card{
+    
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 20px;
+    text-align: center;
+    transition: all 0.25s;
+    
+}
+
+/* EFECTO DE MOVIMIENTO DE LAS TARJETAS ============= */
+.contenedor .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor .card img{
+    width: 330px;
+    height: 220px;
+
+}
+
+/* H4 CARD ============= */
+.contenedor .card h4{
+    padding: 0 1rem;
+    color: black;
+    font-size: 23px;
+}
+
+/* P CARD ============= */
+.contenedor .card p {
+    color: black;
+    padding: 0 1rem;
+    font-size: 18px;
+    
+}
+
+/* A CARD-BOTON ============= #023dff  padding: 0.3px ;*/
+.contenedor .card a {
+    font-size: 18px;
+   font-weight: 550;
+   text-decoration: none;
+   color: #023dff;
+ 
+    
+}
+
+/* SEPARACION DE TITULO CON SUBTITULO ============= */
+.claseb {
+    font-weight: 100;
+    margin: 20px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.contenedor .card:hover{
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+.contenedor .card img{
+    width: 330px;
+    height: 220px;
+
+}
+
+/* COLOR DE FONDO CARD #F9FCF8; ============= */
+.card {
+    --bs-card-bg: #fdfdfd;
+}

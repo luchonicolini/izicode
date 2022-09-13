@@ -1,0 +1,38 @@
+  /* presentacion ============= */
+  .nav-link {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: color .25s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+/* BACKGROUND ============= */
+.navbar {
+    background-color: rgb(20, 20, 20);
+    
+  }
+
+/* CAMBIO DE COLOR DE FONDO ============= */
+  .nav-link:focus, .nav-link:hover {
+    color: rgb(255, 64, 64);
+  }
+
+  /* COLOR DEL BOTON ============= */
+  .btn-outline-secondary {
+    --bs-btn-color: #2e9cff;
+    --bs-btn-border-color: #0087ff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #6c757d;
+    --bs-btn-hover-border-color: #6c757d;
+    --bs-btn-focus-shadow-rgb: 108,117,125;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #6c757d;
+    --bs-btn-active-border-color: #6c757d;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #6c757d;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #6c757d;
+    --bs-gradient: none;
+  }

@@ -1,0 +1,46 @@
+/* presentacion ============= */
+body {
+  font-family: 'Dosis', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-family: 'Varela Round', sans-serif;
+  
+  background-color: #141414;
+  color: #ffffff;
+}
+
+/* barra de separacion ============= */
+hr {
+  background: #dadada;
+  width: 700px;
+}
+
+ /* Testimonial ============= */
+#testimonial {
+  background: rgb(22, 22, 22);
+  color: #ececec;
+  padding: 50px 0 30px 0;
+  text-align:center;
+  margin-top: 40px;
+}
+/* TAMAÑO DE TITULO PRINCIPAL  ============= */
+.display-4 {
+  font-size: 2.9rem;
+}
+
+/* TEXTO COLOR Y TAMAÑO  ============= */
+p {
+  color: #b3b3b3;
+  font-size: 1.3rem;
+}
+
+.title{
+  text-align: center;
+  font-size: 40px;
+  color: #ffffff;
+  margin-top: 100px;
+  font-weight: 100;
+  
+}
+
+/* FINAL ============= */
+

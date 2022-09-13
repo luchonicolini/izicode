@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="icon" href="Image/coding.ico">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Poppins:wght@200&family=Varela+Round&display=swap" rel="stylesheet"> 
+
+    <title>Tarjeta de imagen con ScrollView</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+      <!-- SCROOLL REVEAL SCRIPT -->
+    <script src="Js/scrollreveal.js"></script>
+    <!-- NORMALIZE  -->
+    <link rel="stylesheet" href="css/normalize.css">
+      <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="card/infoOne.css">
+    <link rel="stylesheet" href="card/prism.css">
+
+
+
+  </head>
+  <body>
+  
+  <!-- NAVIGATION -->  
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <!-- Container wrapper -->
+  <div class="container">
+  <!-- Navbar brand -->
+    <a class="navbar-brand me-2" href="home.html">
+      <img class="logo ml-logo" src="Image/izicodezba.png" width="35%">
+    </a>
+      <div class="d-flex align-items-center">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto mr-5">
+            <li class="nav-item">
+              <a class="nav-link" href="home.html"><h5 class="negrita">Inicio</h5></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#header"><h5 class="negrita">Servicio</h5></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+ <!-- INFOMRACION -->  
+
+
+ <body class="post-template tag-swiftui tag-sf-symbols has-cover">
+    <div class="viewport">
+    <div class="site-content">
+
+    <main id="site-main" class="site-main">
+    <article class="article post tag-swiftui tag-sf-symbols ">
+    
+        <header class="article-header gh-canvas">
+           <!-- TITULO -->  
+            <h1 class="article-title">Crear Tarjetas de imagen usando ScrollView</h1>
+            <!-- SUBTITULO -->  
+                <p class="article-sub">El dia de hoy crearemos una app que contiene un modelo de datos que va a iterar la información de nuestra tarjeta medainte un scrollview. </p>
+    
+            <div class="article-byline">
+            <section class="article-byline-content">
+            <!-- IMAGEN -->  
+                <div class="header-content-left ">
+                    <img src="Image/nuevonombre.jpeg" style="width: 50%; margin: 0px auto; display: block;">
+                  </div>  
+                  
+            </section>
+            </div>
+
+        </header> 
+    <!-- COMIENZO DE PORYECTO -->  
+        <section class="gh-content gh-canvas">
+    </code></pre><p>Una vez cumpla con todo los requisitos, Abra Xcode y, en el modal que aparece, seleccione Create a  New Xocode Proyect. Vamos a crear una aplicacion IOS, asi que en la pestaña IOS, seleccione la opcion Aplicacion. 
+      <img src="Image/inicioapp.jpeg" style="width: 100%; padding: 3%;">
+   
+  
+  <!-- INFO DEL PROYECTO MAS CODIGO -->  
+ <!-- 1 --> 
+
+ <h1 class="article-excerpt">Modelo de Datos</h1> 
+
+</code></pre><p>Lo primero que vamos a hacer es crear nuestro primer Modelo de Datos, para eso creamos un nuevo archivo y lo llamaremos Model. Un modelo es una estructura que representa las variables que debe contener un tipo de datos. Al modelo lo llamaré <code>Company</code>
+  cada instancia de Company
+  debe tener una <code>identificación</code>, un <code>nombre</code> con una <code>imagen</code> y un <code>eslogan.</code> Ahora se ajustará a un protocolo
+<code>Identifiable</code>
+ , de modo que cada <code>Company</code> pueda identificarse de forma única por su <code>ID</code> </p><pre><code class="language-swift">
+  struct Company: Identifiable {
+    var id = UUID()
+    var name: String
+    var image: String
+    let slogan: String
+}
+
+</code></pre><p><figcaption>
+  <strong></strong> 
+  </figcaption>
+  </figure>
+<!-- 2 -->
+<h1 class="article-excerpt">Agregar datos dentro de Company</h1>
+
+</code></pre><p> Una ves que se crea el modelo de datos, crearemos una matriz de instacias de Company. dado que el <code>ID</code> es un <code>UUID</code>, solo necesitamos proporcionar un <code>nombre, una imagen y el eslogan.</code>
+  Ahora dado que la variable <code>companies</code> es una matriz, podemos recorrela en nuestra Vista.  </p><pre><code class="language-swift">
+    var companies: [Company] = [
+    Company(name: "Movistar", image: "img1", slogan: "Compartida la vida es más"),
+    Company(name: "Personal", image: "img2", slogan: "Hagamos que todo suceda"),
+    Company(name: "Tigo", image: "img3", slogan: "Aquí estoy contigo a sonrie, tienes tigo")
+    
+]
+
+</code></pre><p><figcaption>
+  <strong></strong> 
+  </figcaption>
+  </figure>
+<!-- 3 -->
+<h1 class="article-excerpt">Vamos a crear nuestro CategoryItem </h1>
+
+</code></pre><p> Vamos a crear un archivo nuevo y lo llamaremos CategoryItem. Dentro de CategoryItem vamos a diseñar nuestra tarjeta. lo primero es añadir <code>var company: Company</code>  afuera de nuestro body. </p><pre><code class="language-swift">
+ 
+  struct CategoryItem: View {
+    var company: Company
+
+    var body: some View {
+        //..
+  
+      </code></pre><p> Ahora la vista previa no funcionara por lo que debe pasar el primer elemento de la matriz <code>companies</code> </p><pre><code class="language-swift">
+        struct CategoryItem_Previews: PreviewProvider {
+          static var previews: some View {
+              CategoryItem(company: companies[0])
+          }
+      }
+
+  </code></pre><p><figcaption>
+    <strong></strong> 
+    </figcaption>
+    </figure>
+      
+      </code></pre><p> Agregamos dentro del cuerpo de CategoryItem un VStack() que contiene otro VStack(), Reemplace la etiqueta del enlace (el texto hello world!) por el siguente codigo. </p><pre><code class="language-swift">
+    
+        struct CategoryItem: View {
+          var company: Company
+          
+          var body: some View {
+              VStack(alignment: .leading, spacing: 16.0) {
+                  Image(company.image)
+                      .resizable()
+                      .renderingMode(.original)
+                      .aspectRatio(contentMode: .fit)
+                      .cornerRadius(15)
+                      .shadow(radius: 3)
+                  
+                  VStack(alignment: .leading) {
+                      Text(company.name)
+                          .font(.title)
+                          .foregroundColor(.primary)
+                      Text(company.slogan)
+                          .font(.headline)
+                          .foregroundColor(.secondary)
+                  
+                  }
+                  
+                  .offset(y: -28)
+                  .padding()
+              }
+              .padding()
+          }
+      }
+
+</code></pre><p><figcaption>
+  <strong></strong> 
+  </figcaption>
+  </figure>
+
+<!-- 5 --> 
+<h1 class="article-excerpt">Crear nuestro HomeView y añadimos el Contenido de nuestas tarjetas </h1>
+
+
+
+</code></pre><p> Una vez creado el archivo  <code>HomeView </code>, le agregaremos un NavigationView y un ScrollView que contiene un <code> VStack</code>  </p><pre><code class="language-swift">
+    struct HomeView: View {
+      var body: some View {
+          NavigationView {
+              ScrollView(.vertical, showsIndicators: false) {
+                  VStack(spacing: 0) {
+                     
+                  }
+              } 
+          }
+      }
+  }
+
+</code></pre><p><figcaption>
+  <strong></strong> 
+  </figcaption>
+  </figure>
+
+  <h1 class="article-excerpt">Diseño de ScrollView</h1>
+  
+</code></pre><p>Debajo del <code>VStack</code> en el contenido, recorreremos los paquetes de datos y mostraremos el contenido de <code>CategoryItem</code> para cada elemento. </p><pre><code class="language-swift">
+  VStack(spacing: 0) {
+    ForEach(companies) { data in
+       CategoryItem(company: data)
+        
+    }
+}
+</code></pre><p><figcaption>
+<strong></strong> 
+</figcaption>
+</figure>
+
+<h1 class="article-excerpt">Completemos nuestro HomeView</h1>
+  </code></pre><p>Finalmente, le agregarmos un background tasparente y un navigationBarTitle al cual llamaremos Compañías telefónicas. </code></p><pre><code class="language-swift">
+    struct HomeView: View {
+      var body: some View {
+          NavigationView {
+              ScrollView(.vertical, showsIndicators: false) {
+                  VStack(spacing: 0) {
+                      ForEach(companies) { data in
+                          CategoryItem(company: data)
+                          
+                      }
+                  }
+              }
+              .background(.ultraThinMaterial)
+              .navigationBarTitle("Compañías telefónicas")
+              
+          }
+      }
+  }
+
+</code></pre><p><figcaption>
+  <strong></strong> 
+  </figcaption>
+  </figure>
+
+     <!-- 4 --> 
+     <h1 class="article-excerpt">Finalmente..</h1>
+    </code></pre><p> Importante! Dentro de nuestro archivo principal en mi caso (ProjectViewApp) debe cambiar el <code>ViewController()</code> por <code>HomeView()</code>, Ahora cuando compile su código debería ejecutarse sin problemas. </code>  </p><pre><code class="language-swift">
+      @main
+      struct ProjectViewApp: App {
+          var body: some Scene {
+              WindowGroup {
+                  HomeView()
+              }
+          }
+      }
+  
+  
+  </code></pre><p><figcaption>
+   <strong></strong> 
+   </figcaption>
+   </figure>
+   </section>
+   </article>
+   </main>
+   
+   
+    <script
+    
+        src="../../code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous">
+    </script>
+    <script src="../assets/built/casperf143.js?v=e87e44dc7b"></script>
+    <script>
+    $(document).ready(function () {
+        // Mobile Menu Trigger
+        $('.gh-burger').click(function () {
+            $('body').toggleClass('gh-head-open');
+        });
+        // FitVids - Makes video embeds responsive
+        $(".gh-content").fitVids();
+    });
+    </script>
+    
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre[class*=language-]').forEach(function (node) {
+                node.classList.add('line-numbers');
+            });
+            Prism.highlightAll();
+        });
+    </script>
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-swift.min.js"></script>
+    
+
+
+  <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <!-- scrollrevealjs -->
+     <script src="Js/prism.js"></script>
+     <script src="Js/index.js"></script>
+  </body>
+</html>
+

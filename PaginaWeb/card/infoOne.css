@@ -1,0 +1,407 @@
+
+
+/* Mobile Menu
+/* ---------------------------------------------------------- */
+/* IDs needed to ensure sufficient specificity */
+
+/* 6. Post Feed
+/* ---------------------------------------------------------- */
+
+/* Special Styling for home page grid (below):
+
+The first post in the list is styled to be bigger than the others and take over
+the full width of the grid to give it more emphasis. Wrapped in a media query to
+make sure this only happens on large viewports / desktop-ish devices.
+
+*/
+/* 7. Single Post
+/* -----------------LETRAS COLORES ----------------------- */
+
+
+.article {
+    padding: max(8vmin, 40px) 0 max(8vmin, 64px);
+    word-break: break-word;
+}
+
+.page-template .article {
+    padding-top: max(12vmin, 64px);
+}
+
+.article-header {
+    padding: 0 0 max(6.4vmin, 40px) 0;
+}
+
+.page-template .article-header {
+    padding-bottom: max(3.2vmin, 28px);
+}
+
+.article-tag {
+    margin-bottom: 16px;
+    font-size: 1.6rem;
+}
+
+.article-tag a {
+    color: var(--color-secondary-text);
+}
+
+.article-title {
+    margin-bottom: 0;
+    font-size: 3.5rem;
+    font-weight: 80;
+    line-height: 1;
+    color: white;
+}
+
+.article-sub {
+    margin-top: 20px;
+    max-width: 720px;
+    font-size: 2rem;
+    color: #b3b3b3;
+}
+
+
+.article-excerpt {
+    margin-top: 20px;
+    max-width: 720px;
+    font-size: 2rem;
+    color: white;
+    
+}
+
+.gh-canvas .article-image {
+    grid-column: wide-start / wide-end;
+    width: 100%;
+    margin: max(6.4vmin, 40px) 0 0;
+}
+
+.image-full .article-image {
+    grid-column: full-start / full-end;
+}
+
+.image-small .article-image {
+    grid-column: main-start / main-end;
+}
+
+.gh-canvas .article-image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .article-excerpt {
+        margin-top: 14px;
+        font-size: 1.7rem;
+    }
+}
+
+/* -------- */
+
+/* Content grid
+/* ---------------------------------------------------------- */
+
+/* Canvas creates a multi-column, centered grid which the post
+is laid out on top of. Canvas just defines the grid, we don't
+use it for applying any other styles. */
+
+.gh-canvas {
+    display: grid;
+    grid-template-columns:
+        [full-start]
+        minmax(max(4vmin, 20px), auto)
+            [wide-start]
+            minmax(auto, 240px)
+                [main-start]
+                    min(720px, calc(100% - max(8vmin, 40px)))
+                [main-end]
+            minmax(auto, 240px)
+            [wide-end]
+        minmax(max(4vmin, 20px), auto)
+        [full-end]
+    ;
+}
+
+.gh-canvas > * {
+    grid-column: main-start / main-end;
+}
+
+.kg-width-wide {
+    grid-column: wide-start / wide-end;
+}
+
+.kg-width-full {
+    grid-column: full-start / full-end;
+}
+
+.kg-width-full img {
+    width: 100%;
+}
+
+
+/* Content
+/* ---------------------------------------------------------- */
+
+/* Content refers to styling all page and post content that is
+created within the Ghost editor. The main content handles
+headings, text, images and lists. We deal with cards lower down. */
+
+/* Default vertical spacing */
+.gh-content > * + * {
+    margin-top: max(3.2vmin, 24px);
+    margin-bottom: 0;
+}
+
+/* [id] represents all headings h1-h6, reset all margins */
+.gh-content > [id] {
+    margin: 0;
+    color: var(--color-darkgrey);
+}
+
+.has-serif-title .gh-content > [id] {
+    font-family: var(--font-serif);
+}
+
+/* Add back a top margin to all headings, unless a heading
+is the very first element in the post content */
+.gh-content > [id]:not(:first-child) {
+    margin: 2em 0 0;
+}
+
+/* Add a small margin between a heading and anything after it */
+.gh-content > [id] + * {
+    margin-top: 1.5rem !important;
+}
+
+/* A larger margin before/after HRs and blockquotes */
+.gh-content > hr,
+.gh-content > blockquote {
+    position: relative;
+    margin-top: max(4.8vmin, 32px);
+}
+.gh-content > hr + *,
+.gh-content > blockquote + * {
+    margin-top: max(4.8vmin, 32px) !important;
+}
+
+/* Now the content typography styles */
+.gh-content a {
+    color: var(--ghost-accent-color);
+    text-decoration: underline;
+    word-break: break-word;
+}
+
+.gh-content > blockquote:not([class]),
+.gh-content > ol,
+.gh-content > ul,
+.gh-content > dl,
+.gh-content > p {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.6em;
+}
+
+.gh-content .kg-callout-card .kg-callout-text,
+.gh-content .kg-toggle-card .kg-toggle-content > ol,
+.gh-content .kg-toggle-card .kg-toggle-content > ul,
+.gh-content .kg-toggle-card .kg-toggle-content > p {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.9rem;
+    line-height: 1.6em;
+}
+
+.gh-content .kg-product-card .kg-product-card-description > p,
+.gh-content .kg-product-card .kg-product-card-description > ol,
+.gh-content .kg-product-card .kg-product-card-description > ul {
+    font-size: 1.7rem;
+    line-height: 1.6em;
+}
+
+.gh-content .kg-callout-card .kg-callout-emoji {
+    font-size: 2.1rem;
+    line-height: 1.4em;
+}
+
+.gh-content .kg-toggle-card .kg-toggle-heading-text {
+    font-size: 2.0rem;
+}
+
+.has-sans-body .gh-content > blockquote,
+.has-sans-body .gh-content > ol,
+.has-sans-body .gh-content > ul,
+.has-sans-body .gh-content > dl,
+.has-sans-body .gh-content > p,
+.has-sans-body .gh-content .kg-callout-card .kg-callout-text,
+.has-sans-body .gh-content .kg-toggle-card .kg-toggle-content > ol,
+.has-sans-body .gh-content .kg-toggle-card .kg-toggle-content > ul,
+.has-sans-body .gh-content .kg-toggle-card .kg-toggle-content > p {
+    font-family: var(--font-sans);
+}
+
+.gh-content > ul,
+.gh-content > ol,
+.gh-content > dl,
+.gh-content .kg-toggle-card .kg-toggle-content > ol,
+.gh-content .kg-toggle-card .kg-toggle-content > ul,
+.gh-content .kg-product-card .kg-product-card-description > ol,
+.gh-content .kg-product-card .kg-product-card-description > ul {
+    padding-left: 1.9em;
+}
+
+.gh-content > blockquote:not([class]) {
+    position: relative;
+    font-style: italic;
+    padding: 0;
+}
+
+.gh-content > blockquote:not([class])::before {
+    content: "";
+    position: absolute;
+    left: -1.5em;
+    top: 0;
+    bottom: 0;
+    width: 0.3rem;
+    background: var(--ghost-accent-color);
+}
+
+.gh-content :not(pre) > code {
+    vertical-align: middle;
+    padding: 0.15em 0.4em 0.15em;
+    border: #e1eaef 1px solid;
+    font-weight: 400 !important;
+    font-size: 0.9em;
+    line-height: 1em;
+    color: #15171A;
+    background: #f0f6f9;
+    border-radius: 0.25em;
+}
+
+.gh-content pre {
+    overflow: auto;
+    padding: 16px 20px;
+    color: var(--color-wash);
+    font-size: 1.4rem;
+    line-height: 1.5em;
+    background: var(--color-darkgrey);
+    border-radius: 5px;
+    box-shadow: 0 2px 6px -2px rgba(0,0,0,.1), 0 0 1px rgba(0,0,0,.4);
+}
+
+@media (max-width: 650px) {
+    .gh-content > blockquote:not([class]),
+    .gh-content > ol,
+    .gh-content > ul,
+    .gh-content > dl,
+    .gh-content > p,
+    .gh-content .kg-callout-card .kg-callout-text,
+    .gh-content .kg-toggle-card .kg-toggle-content > ol,
+    .gh-content .kg-toggle-card .kg-toggle-content > ul,
+    .gh-content .kg-toggle-card .kg-toggle-content > p {
+        font-size: 1.8rem;
+    }
+
+    .gh-content .kg-product-card .kg-product-card-description > p,
+    .gh-content .kg-product-card .kg-product-card-description > ol,
+    .gh-content .kg-product-card .kg-product-card-description > ul {
+        font-size: 1.6rem;
+    }
+
+    .gh-content blockquote:not([class])::before {
+        left: min(-4vmin, -20px);
+    }
+}
+
+/* 8. Tag Template
+/* ---------------------------------------------------------- */
+
+.tag-template .post-card-large .post-card-image-link {
+    grid-column: 2 / span 2;
+    order: 2;
+}
+
+.tag-template .post-card-large .post-card-content {
+    order: 1;
+}
+
+
+/* 9. Error Template
+/* ---------------------------------------------------------- */
+
+.error-content {
+    padding: 14vw 4vw 2vw;
+}
+
+.error-message {
+    padding-bottom: 10vw;
+    text-align: center;
+}
+
+.error-code {
+    margin: 0;
+    font-size: 12vw;
+    line-height: 1em;
+    letter-spacing: -5px;
+}
+
+.error-description {
+    margin: 0;
+    color: var(--color-secondary-text);
+    font-size: 3.2rem;
+    line-height: 1.3em;
+    letter-spacing: -0.005em;
+    font-weight: 400;
+}
+
+.error-link {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+@media (min-width: 940px) {
+    .error-content .post-card {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .error-content {
+        padding-top: 24vw;
+    }
+    .error-code {
+        font-size: 11.2rem;
+    }
+    .error-message {
+        padding-bottom: 16vw;
+    }
+    .error-description {
+        margin: 5px 0 0 0;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .error-content {
+        padding-top: 28vw;
+    }
+    .error-message {
+        padding-bottom: 14vw;
+    }
+}
+
+
+.gh-content > blockquote:not([class]), .gh-content > ol, .gh-content > ul, .gh-content > dl, .gh-content > p {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 1.3rem;
+    line-height: 1.6em;
+  }
+
+  p {
+    color: #b3b3b3;
+  }
+
+  
